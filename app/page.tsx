@@ -3,10 +3,10 @@
 import { useFirebaseData } from "@/hooks/useFirebaseData";
 import DataCard from "@/components/DataCard";
 import { formatData } from "@/lib/formatData";
-import { rawDataTypes, sensorDataTypes } from "@/types";
+import { sensorDataTypes } from "@/types";
 
 export default function App() {
-  const { data, error, isLoading } = useFirebaseData();
+  const { data } = useFirebaseData();
 
   if (!data) return <p>Loading</p>;
 
