@@ -21,4 +21,4 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app); 
-export const dataRef = ref(db, 'sensorData');
+export const dataRef = ref(db, '/');
