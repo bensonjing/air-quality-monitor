@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Legend, ResponsiveContainer } from 'recharts';
 import { sensorDataTypes } from "@/types";
 import dynamic from "next/dynamic";
 const GaugeComponent = dynamic(() => import('react-gauge-component'), { ssr: false });
