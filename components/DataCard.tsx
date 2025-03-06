@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { sensorDataTypes } from "@/types";
 import dynamic from "next/dynamic";
 const GaugeComponent = dynamic(() => import('react-gauge-component'), { ssr: false });
@@ -53,11 +54,34 @@ export default function DataCard( {sensorData, dangerLevel} : {sensorData : sens
           </CardContent>
         </Card>        
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="fixed inset-0">
         <DialogHeader>
-          <DialogTitle>{sensorData.reading}</DialogTitle>
-          <DialogDescription>{sensorData.name}</DialogDescription>
+          <DialogDescription className="text-lg">{sensorData.name}</DialogDescription>
+          <DialogTitle className="font-bold">
+            <span className="text-5xl">{sensorData.reading}</span>
+            <span className="text-3xl">{sensorData.unit}</span>
+          </DialogTitle>
         </DialogHeader>
+        <div className="mt-4 h-64">
+          <ResponsiveContainer width={"100%"} height={"100%"}>
+            <LineChart
+              width={500}
+              height={300}
+              data={sensorData.history.slice(-20)}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <XAxis dataKey="time" tick={false}/>
+              <YAxis />
+              <Legend />
+              <Line type="monotone" dataKey="reading" stroke="#8884d8" />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
       </DialogContent>
     </Dialog>
   )

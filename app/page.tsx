@@ -11,6 +11,7 @@ export default function App() {
   if (!data) return <p>Loading</p>;
 
   const sensorData : sensorDataTypes[] = formatData(data);
+  console.log(sensorData[0].history);
 
   return (
     <div className="grid grid-cols-4 gap-4 m-20 h-150">
