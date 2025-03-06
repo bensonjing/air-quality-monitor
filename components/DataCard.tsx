@@ -54,7 +54,7 @@ export default function DataCard( {sensorData, dangerLevel} : {sensorData : sens
           </CardContent>
         </Card>        
       </DialogTrigger>
-      <DialogContent className="fixed inset-0">
+      <DialogContent>
         <DialogHeader>
           <DialogDescription className="text-lg">{sensorData.name}</DialogDescription>
           <DialogTitle className="font-bold">
